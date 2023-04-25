@@ -31,6 +31,16 @@ void break_up_command(char* command, char** args){
     args[i] = NULL; // for exec
 }
 
+// add given paths to environment variable
+void add_paths(int argc, char* argv[]) {
+    for (int i = 0; i < argc; i++) {
+        char *path = getenv("PATH");
+        strcat(path, ":/");
+        strcat(path, argv[i]);
+        setenv("PATH", path, 0);
+    }
+}
+
 //implementation of the history command:
 void history_command() {
     for (int i = 0; i < history_len; i++) { // print all history
@@ -61,6 +71,7 @@ void add_to_history(char* command, pid_t pid){
 //the main program of the shell:
 int main(int argc, char *argv[]) {
     int run = 1; // flag
+    add_paths(argc, argv);
     char command[MAX_COMMAND_LENGTH]; // will hold the command inserted by user
     char *args[MAX_NUM_ARGUMENTS]; //will hold each word in the command as strings
     while (run) { // loop continuously for the user to insert commands
