@@ -38,8 +38,4 @@ else
         }
         process_folder "$1"
     ' _ {} \;
-    #find "$1" -type d -exec bash -c 'echo "$1"; process_folder "$1"' _ {} \;
-    #find "$1" -type d -exec bash -c 'process_folder "$1"' {} \;
-    #find "$1" -type d | xargs -I {} bash -c 'process_folder "$@"' _ {}
-    #find "$1" -type d -print0 | xargs -0 bash -c 'process_folder "$@"';
 fi
