@@ -1,4 +1,5 @@
 #!/bin/bash
+# Or Itzhaki 209335058
 
 #creating global variables:
 export WORD=$2
