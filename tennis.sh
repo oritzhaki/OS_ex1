@@ -1,4 +1,5 @@
 #!/bin/bash
+# Or Itzhaki 209335058
 
 p1s=50
 p2s=50
